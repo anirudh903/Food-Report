@@ -46,7 +46,7 @@ prefs = {
     "download.directory_upgrade": True,
     "safebrowsing.enabled": True
 }
-chrome_options.add_experimental_option("prefs", prefs)"
+chrome_options.add_experimental_option("prefs", prefs)
 
 # TIMEOUT = 10  # seconds
 
