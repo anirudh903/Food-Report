@@ -20,8 +20,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt || true
-          pip install selenium requests google-api-python-client google-auth google-auth-oauthlib
+             pip install -r requirements.txt || true
+             pip install selenium requests google-api-python-client google-auth google-auth-oauthlib webdriver-manager
 
       - name: Install Chrome
         run: |
