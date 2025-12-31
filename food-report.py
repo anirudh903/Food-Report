@@ -15,18 +15,24 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
 from googleapiclient.discovery import build
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 
 options = Options()
 options.add_argument("--headless=new")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("--disable-gpu")
-options.binary_location = "/usr/bin/chromium-browser"
+options.add_argument("--window-size=1920,1080")
+
+options.binary_location = os.getenv("CHROME_BIN", "/usr/bin/chromium-browser")
 
 driver = webdriver.Chrome(
-    service=Service(ChromeDriverManager().install()),
+    service=Service(os.getenv("CHROMEDRIVER_PATH", "/usr/bin/chromedriver")),
     options=options
 )
+
 
 
 # URL to navigate to
