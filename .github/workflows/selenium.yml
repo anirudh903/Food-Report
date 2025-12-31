@@ -23,7 +23,7 @@ jobs:
           pip install -r requirements.txt || true
           pip install selenium requests google-api-python-client google-auth google-auth-oauthlib
 
-      - name: Install Chrome
+      - name: Install Chromium
         run: |
           sudo apt update
           sudo apt install -y chromium-browser chromium-chromedriver
@@ -33,5 +33,7 @@ jobs:
       - name: Run script
         env:
           DISPLAY: ":99"
+          CHROME_BIN: /usr/bin/chromium-browser
+          CHROMEDRIVER_PATH: /usr/bin/chromedriver
         run: |
           python3 food-report.py
