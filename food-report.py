@@ -73,17 +73,6 @@ prefs = {
 
 chrome_options.add_experimental_option("prefs", prefs)
 
-# 🔽 Start driver with download settings
-driver = webdriver.Chrome(
-    service=Service(ChromeDriverManager().install()),options=chrome_options
-)
-
-# Open the specified URL
-driver.get(url)
-
-# Optional: Maximize the browser window
-driver.maximize_window()
-
 # Wait for the username field and enter credentials
 WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.NAME, "username"))
