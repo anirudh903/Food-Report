@@ -26,14 +26,27 @@ options.add_argument("--window-size=1920,1080")
 options.binary_location = "/usr/bin/chromium-browser"
 
 service = Service("/usr/bin/chromedriver")
-
 driver = webdriver.Chrome(service=service, options=options)
 
 # URL to navigate to
 url = "https://www.supplynote.in/signin"
+driver.get(url)
+
+print("Opened:", driver.current_url)
+print("Title:", driver.title)
 
 # 🔽 Download path
-download_dir = r"C:\Users\Admin\Desktop\generated report dowload"
+download_dir = "/home/runner/work/downloads"
+os.makedirs(download_dir, exist_ok=True)
+
+chrome_options = Options()
+prefs = {
+    "download.default_directory": download_dir,
+    "download.prompt_for_download": False,
+    "download.directory_upgrade": True,
+    "safebrowsing.enabled": True
+}
+chrome_options.add_experimental_option("prefs", prefs)ad"
 
 # TIMEOUT = 10  # seconds
 
